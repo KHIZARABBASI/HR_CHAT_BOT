@@ -1,0 +1,50 @@
+--------------remaining leaves----------
+SELECT 20 - COALESCE(SUM(days), 0) AS remaining_leaves
+FROM leaves l
+JOIN employees e ON l.employee_id = e.emp_id
+WHERE e.emp_name = 'Keven'
+  AND l.status = 'Approved'
+  AND EXTRACT(YEAR FROM l.start_date) = EXTRACT(YEAR FROM CURRENT_DATE);
+
+
+-----------------leaves-----------------
+
+CREATE TABLE leaves (
+    id SERIAL PRIMARY KEY,
+    employee_id INT REFERENCES employees(id) ON DELETE CASCADE, -- Link to employee
+    start_date DATE NOT NULL,    -- Leave start date
+    end_date DATE NOT NULL,      -- Leave end date
+    days INT GENERATED ALWAYS AS (end_date - start_date + 1) STORED, -- Auto-calc leave days
+    leave_type VARCHAR(50) NOT NULL,   -- e.g., Sick, Casual, Annual
+    status VARCHAR(20) DEFAULT 'Pending',  -- Pending, Approved, Rejected
+    applied_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- When employee applied
+    approved_by INT REFERENCES employees(id), -- (Optional) Manager who approved
+    remarks TEXT  -- Any comments
+);
+ ----------------------------------Quries-------------------------------------------------
+
+
+ "Hi! Can you please find me Haider Email address?" => Haider - Person
+                                                    => Intent - Info
+
+                                                    select info from employees
+                                                    where name is person;
+
+"Hi can you tell me how much i have Leaves remaning?" -- => Haider - Person
+                                                      => Intent - Leaves 
+
+                                                      select info from employees
+                                                      where name is person;
+
+
+
+
+
+
+echo "# HR_CHAT_BOT" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/KHIZARABBASI/HR_CHAT_BOT.git
+git push -u origin main

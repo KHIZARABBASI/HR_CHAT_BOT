@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "/app/static/style.css">
+    <title>HR Management System Chatbot</title>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <ul class="chat-list">
+                <li class="chat-item active" data-chat="chat1">Leave Request</li>
+                <!-- <li class="chat-item" data-chat="chat2">Payroll Query</li>
+                <li class="chat-item" data-chat="chat3">Onboarding</li> -->
+            </ul>
+        </div>
+        <div class="chat-widget" id="chatWidget">
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div class="chat-icon">✋🏾</div>
+                    <span class="chat-name">HR Assistant</span>
+                    <span class="online-status">Online - September 25, 2025, 03:08 PM PKT</span>
+                </div>
+                <div class="chat-controls">
+                    <button class="chat-control-btn" title="Refresh">🔄</button>
+                    <button class="chat-control-btn" title="Minimize">➖</button>
+                    <button class="chat-control-btn" title="Close">✖</button>
+                </div>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="message bot-message">
+                    Hi there! Need help with your leave request? 😊
+                    <br>Would you like to check your balance?
+                </div>
+                <!-- <div class="quick-replies">
+                    <button class="quick-reply-btn">Yes, sure!</button>
+                    <button class="quick-reply-btn">No, thanks!</button>
+                </div> -->
+                <div class="suggested-reply">How many days do I have left?</div>
+                <div class="message user-message">Can I apply for leave?</div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" class="message-input" placeholder="Type your message...">
+                <button class="emoji-btn" title="Emoji">😊</button>
+                <button class="attach-btn" title="Attach">📎</button>
+                <button class="send-btn" title="Send">➤</button>
+            </div>
+        </div>
+    </div>
+    <script src="/app/static/script.js"></script>
+</body>
+</html>
